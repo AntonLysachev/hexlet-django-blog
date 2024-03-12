@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from typing import Any
+from django.views.generic.base import TemplateView
 
 TEAM = [
     {'name': 'Yoda', 'position': 'CEO'},
@@ -7,7 +8,14 @@ TEAM = [
     {'name': 'Jar Jar Binks', 'position': 'Trainee'},
 ]
 
-def index(request):
-    return render(request, 'articles.html', context={
-        'body': TEAM,
-    })
+
+class ArticlePageView(TemplateView):
+    template_name = "articles.html"
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        return {'body': TEAM,}
+    
+
+class TegArticlePageView(TemplateView):
+    template_name = "tags_article_id"
+    def get_context_data(self, tag_id, article_id) -> dict[str, Any]:
+        return {'tag_id': tag_id, 'article_id': article_id}
