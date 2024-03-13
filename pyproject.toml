@@ -6,9 +6,10 @@ authors = ["AntonLysachev <anton@lysachev.ru>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 Django = "^5.0.2"
 flake8 = "^7.0.0"
+python-dotenv = "^1.0.1"
 
 
 [build-system]
