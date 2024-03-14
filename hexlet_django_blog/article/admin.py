@@ -6,5 +6,5 @@ from django.contrib.admin import DateFieldListFilter
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
     search_fields = ['name', 'body']
-    list_display = ('name', 'timestamp')
+    list_display = ('id', 'name', 'timestamp')
     list_filter = (('timestamp', DateFieldListFilter),)
